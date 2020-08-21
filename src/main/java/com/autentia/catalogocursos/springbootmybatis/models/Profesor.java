@@ -9,8 +9,6 @@ import lombok.Setter;
 @Setter
 public class Profesor {
 
-    private Long id;
-
     String nombre;
 
     String apellidos;
@@ -18,7 +16,6 @@ public class Profesor {
     @Override
     public String toString() {
         return "Profesor{" +
-                "id=" + id +
                 ", nombre='" + nombre + '\'' +
                 ", apellidos='" + apellidos + '\'' +
                 '}';

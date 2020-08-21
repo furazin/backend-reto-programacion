@@ -1,5 +1,6 @@
 package com.autentia.catalogocursos.springbootmybatis;
 
+import com.autentia.catalogocursos.springbootmybatis.dto.ProfesorDTO;
 import com.autentia.catalogocursos.springbootmybatis.mappers.CursoMapper;
 import com.autentia.catalogocursos.springbootmybatis.mappers.ProfesorMapper;
 import com.autentia.catalogocursos.springbootmybatis.models.Curso;
@@ -12,6 +13,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.util.ArrayList;
+
 @MappedTypes(Curso.class)
 @MapperScan("com.autentia.catalogocursos.springbootmybatis.mappers")
 @Slf4j
@@ -19,18 +22,18 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class SpringBootMybatisApplication implements CommandLineRunner {
 
 	@Autowired
-	private CursoMapper cursoMapper;
+	CursoMapper cursoMapper;
 
 	@Autowired
-	private ProfesorMapper profesorMapper;
+	ProfesorMapper profesorMapper;
 
 	@Override
 	public void run(String...args) throws Exception {
 
-		Profesor profesor1 = new Profesor(new Long(1), "Roberto", "Canales");
-		Profesor profesor2 = new Profesor(new Long(2), "David", "Gómez");
-		Profesor profesor3 = new Profesor(new Long(3), "Alberto", "Moratilla");
-		Profesor profesor4 = new Profesor(new Long(4), "Rubén", "Aguilera");
+		Profesor profesor1 = new Profesor("Roberto", "Canales");
+		Profesor profesor2 = new Profesor("David", "Gómez");
+		Profesor profesor3 = new Profesor("Alberto", "Moratilla");
+		Profesor profesor4 = new Profesor("Rubén", "Aguilera");
 
 		profesorMapper.insert(profesor1);
 		profesorMapper.insert(profesor2);
@@ -42,14 +45,16 @@ public class SpringBootMybatisApplication implements CommandLineRunner {
 		log.info("Insertando Profesor 3 -> {}", profesor3.toString());
 		log.info("Insertando Profesor 4 -> {}", profesor4.toString());
 
-		Curso curso1 = new Curso(new Long(1), "Introduccion a JSF2","Intermedio","25","activo",new Long(1));
-		Curso curso2 = new Curso(new Long(2), "Novedades en Java 8","Basico","10","activo",new Long(2));
-		Curso curso3 = new Curso(new Long(3), "Introduccion a JSF2","Intermedio","25","activo",new Long(1));
-		Curso curso4 = new Curso(new Long(4), "Introduccion a JSF2","Intermedio","25","activo",new Long(2));
-		Curso curso5 = new Curso(new Long(5), "Introduccion a JSF2","Intermedio","25","activo",new Long(1));
-		Curso curso6 = new Curso(new Long(6), "Novedades en Java 8","Basico","10","activo",new Long(2));
-		Curso curso7 = new Curso(new Long(7), "Introduccion a JSF2","Intermedio","25","activo",new Long(1));
-		Curso curso8 = new Curso(new Long(8), "Novedades en Java 8","Basico","10","activo",new Long(2));
+		ArrayList<ProfesorDTO> listaProfesores = (ArrayList<ProfesorDTO>) profesorMapper.findAll();
+
+		Curso curso1 = new Curso("Introduccion a JSF2","Intermedio","25","SI",listaProfesores.get(0).getId());
+		Curso curso2 = new Curso("Novedades en Java 8","Basico","10","SI",listaProfesores.get(1).getId());
+		Curso curso3 = new Curso("Introduccion a JSF2","Intermedio","25","SI",listaProfesores.get(0).getId());
+		Curso curso4 = new Curso("Novedades en Java 8","Intermedio","25","SI",listaProfesores.get(1).getId());
+		Curso curso5 = new Curso("Introduccion a JSF2","Intermedio","25","SI",listaProfesores.get(0).getId());
+		Curso curso6 = new Curso("Novedades en Java 8","Basico","10","SI",listaProfesores.get(1).getId());
+		Curso curso7 = new Curso("Introduccion a JSF2","Intermedio","25","SI",listaProfesores.get(0).getId());
+		Curso curso8 = new Curso("Novedades en Java 8","Basico","10","SI",listaProfesores.get(1).getId());
 
 		cursoMapper.insert(curso1);
 		cursoMapper.insert(curso2);

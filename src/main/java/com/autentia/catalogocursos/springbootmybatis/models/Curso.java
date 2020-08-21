@@ -10,8 +10,6 @@ import lombok.Setter;
 @Setter
 public class Curso {
 
-    private Long id;
-
     private String titulo;
 
     private String nivel;
@@ -24,9 +22,7 @@ public class Curso {
 
     @Override
     public String toString() {
-        return "Curso{" +
-                "id=" + id +
-                ", titulo='" + titulo + '\'' +
+        return "Curso{" + "titulo='" + titulo + '\'' +
                 ", nivel='" + nivel + '\'' +
                 ", numHoras='" + numHoras + '\'' +
                 ", activo='" + activo + '\'' +

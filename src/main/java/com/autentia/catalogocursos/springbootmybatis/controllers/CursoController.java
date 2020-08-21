@@ -1,20 +1,16 @@
 package com.autentia.catalogocursos.springbootmybatis.controllers;
 
 import com.autentia.catalogocursos.springbootmybatis.mappers.CursoMapper;
-import lombok.AllArgsConstructor;
+import com.autentia.catalogocursos.springbootmybatis.models.Curso;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @Slf4j
 @RequestMapping("api/curso")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
 public class CursoController {
 
     private CursoMapper cursoMapper;
@@ -31,5 +27,16 @@ public class CursoController {
     public ResponseEntity<?> getAll() {
         log.info("Obteniendo cursos ...");
         return new ResponseEntity<>(cursoMapper.findAll(), HttpStatus.OK);
+    }
+
+    /**
+     * Añadir un curso
+     * @return Respuesta http con el nuevo curso
+     */
+    @PostMapping("/addCurso")
+    public ResponseEntity<?> addCurso(@RequestBody Curso curso) {
+        log.info("Añadiendo curso..." + curso.toString());
+        cursoMapper.insert(curso);
+        return new ResponseEntity<>(curso, HttpStatus.OK);
     }
 }
