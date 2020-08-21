@@ -20,9 +20,7 @@ public class Curso {
 
     private String activo;
 
-    private String nombreProfesor;
-
-    private String apellidosProfesor;
+    private Long profesor_id;
 
     @Override
     public String toString() {
@@ -32,8 +30,8 @@ public class Curso {
                 ", nivel='" + nivel + '\'' +
                 ", numHoras='" + numHoras + '\'' +
                 ", activo='" + activo + '\'' +
-                ", nombreProfesor='" + nombreProfesor + '\'' +
-                ", apellidosProfesor='" + apellidosProfesor + '\'' +
+                ", profesor_id=" + profesor_id +
                 '}';
     }
 }
+    
