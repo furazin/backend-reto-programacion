@@ -15,6 +15,10 @@ public interface CursoMapper {
             "from curso inner join profesor on curso.profesor_id = profesor.id")
     public List<CursoDTO> findAll();
 
+    @Select("select curso.id, curso.titulo, curso.nivel, curso.numHoras, curso.activo, profesor.nombre, profesor.apellidos " +
+            "from curso inner join profesor on curso.profesor_id = profesor.id where curso.activo=true order by curso.titulo")
+    public List<CursoDTO> findAllCursosActivos();
+
     @Insert("INSERT INTO curso(titulo, nivel, numHoras, activo, profesor_id) " +
             "VALUES (#{titulo}, #{nivel}, #{numHoras}, #{activo}, #{profesor_id})")
     void insert(Curso curso);

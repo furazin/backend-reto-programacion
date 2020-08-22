@@ -30,6 +30,16 @@ public class CursoController {
     }
 
     /**
+     * Obtener toda la lista de cursos existentes
+     * @return Respuesta http con la lista de cursos
+     */
+    @GetMapping("/allCursosActivos")
+    public ResponseEntity<?> getAllActivos() {
+        log.info("Obteniendo cursos activos ...");
+        return new ResponseEntity<>(cursoMapper.findAllCursosActivos(), HttpStatus.OK);
+    }
+
+    /**
      * Añadir un curso
      * @return Respuesta http con el nuevo curso
      */
