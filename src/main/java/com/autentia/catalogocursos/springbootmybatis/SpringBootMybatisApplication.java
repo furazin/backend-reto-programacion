@@ -47,14 +47,14 @@ public class SpringBootMybatisApplication implements CommandLineRunner {
 
 		ArrayList<ProfesorDTO> listaProfesores = (ArrayList<ProfesorDTO>) profesorMapper.findAll();
 
-		Curso curso1 = new Curso("Introduccion a JSF2","Intermedio","25","SI",listaProfesores.get(0).getId());
-		Curso curso2 = new Curso("Novedades en Java 8","Basico","10","SI",listaProfesores.get(1).getId());
-		Curso curso3 = new Curso("Introduccion a JSF2","Intermedio","25","SI",listaProfesores.get(0).getId());
-		Curso curso4 = new Curso("Novedades en Java 8","Intermedio","25","SI",listaProfesores.get(1).getId());
-		Curso curso5 = new Curso("Introduccion a JSF2","Intermedio","25","SI",listaProfesores.get(0).getId());
-		Curso curso6 = new Curso("Novedades en Java 8","Basico","10","SI",listaProfesores.get(1).getId());
-		Curso curso7 = new Curso("Introduccion a JSF2","Intermedio","25","SI",listaProfesores.get(0).getId());
-		Curso curso8 = new Curso("Novedades en Java 8","Basico","10","SI",listaProfesores.get(1).getId());
+		Curso curso1 = new Curso("Introduccion a JSF2","Intermedio","25",true,listaProfesores.get(0).getId());
+		Curso curso2 = new Curso("Novedades en Java 8","Basico","10",true,listaProfesores.get(1).getId());
+		Curso curso3 = new Curso("Introduccion a JSF2","Intermedio","25",true,listaProfesores.get(0).getId());
+		Curso curso4 = new Curso("Novedades en Java 8","Intermedio","25",true,listaProfesores.get(1).getId());
+		Curso curso5 = new Curso("Introduccion a JSF2","Intermedio","25",true,listaProfesores.get(0).getId());
+		Curso curso6 = new Curso("Novedades en Java 8","Basico","10",true,listaProfesores.get(1).getId());
+		Curso curso7 = new Curso("Introduccion a JSF2","Intermedio","25",true,listaProfesores.get(0).getId());
+		Curso curso8 = new Curso("Novedades en Java 8","Basico","10",true,listaProfesores.get(1).getId());
 
 		cursoMapper.insert(curso1);
 		cursoMapper.insert(curso2);

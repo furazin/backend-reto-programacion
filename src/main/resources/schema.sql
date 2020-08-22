@@ -11,7 +11,7 @@ create table curso
     titulo varchar(255) not null,
     nivel varchar(255) not null,
     numHoras varchar(255) not null,
-    activo varchar(255) not null,
+    activo boolean not null,
     profesor_id integer,
     primary key(id),
     constraint fk_curso_profesor foreign key (profesor_id)

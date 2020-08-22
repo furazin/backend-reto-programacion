@@ -16,7 +16,7 @@ public class Curso {
 
     private String numHoras;
 
-    private String activo;
+    private Boolean activo;
 
     private Long profesor_id;
 
