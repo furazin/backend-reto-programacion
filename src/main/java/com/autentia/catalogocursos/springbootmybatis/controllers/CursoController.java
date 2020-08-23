@@ -49,4 +49,5 @@ public class CursoController {
         cursoMapper.insert(curso);
         return new ResponseEntity<>(curso, HttpStatus.OK);
     }
+
 }

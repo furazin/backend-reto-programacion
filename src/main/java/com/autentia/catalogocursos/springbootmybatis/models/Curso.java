@@ -1,6 +1,5 @@
 package com.autentia.catalogocursos.springbootmybatis.models;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -19,6 +18,11 @@ public class Curso {
     private Boolean activo;
 
     private Long profesor_id;
+
+    private String temario;
+
+    public Curso() {
+    }
 
     @Override
     public String toString() {
