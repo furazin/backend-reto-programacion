@@ -16,7 +16,7 @@ public class CursoDTO {
 
     private String numHoras;
 
-    private String activo;
+    private Boolean activo;
 
     private String nombreProfesor;
 
