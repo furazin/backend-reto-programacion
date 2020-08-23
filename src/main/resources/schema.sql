@@ -13,6 +13,7 @@ create table curso
     numHoras varchar(255) not null,
     activo boolean not null,
     profesor_id integer,
+    temario clob,
     primary key(id),
     constraint fk_curso_profesor foreign key (profesor_id)
     references profesor(id)

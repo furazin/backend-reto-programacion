@@ -21,4 +21,6 @@ public class CursoDTO {
     private String nombreProfesor;
 
     private String apellidosProfesor;
+
+    private String temario;
 }
