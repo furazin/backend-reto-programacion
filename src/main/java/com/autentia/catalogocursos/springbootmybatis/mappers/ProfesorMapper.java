@@ -12,7 +12,7 @@ import java.util.List;
 public interface ProfesorMapper {
 
     @Select("select * from profesor")
-    public List<ProfesorDTO> findAll();
+    List<ProfesorDTO> findAll();
 
     @Insert("INSERT INTO profesor(nombre, apellidos) " +
             "VALUES (#{nombre}, #{apellidos})")
