@@ -58,14 +58,14 @@ public class SpringBootMybatisApplication implements CommandLineRunner {
 		Curso curso7 = new Curso("Introduccion a JSF2","Intermedio","25",true,listaProfesores.get(0).getId(),temarioModelo);
 		Curso curso8 = new Curso("Novedades en Java 8","Basico","10",true,listaProfesores.get(1).getId(),temarioModelo);
 
-		cursoMapper.insertConTemario(curso1);
-		cursoMapper.insertConTemario(curso2);
-		cursoMapper.insertConTemario(curso3);
-		cursoMapper.insertConTemario(curso4);
-		cursoMapper.insertConTemario(curso5);
-		cursoMapper.insertConTemario(curso6);
-		cursoMapper.insertConTemario(curso7);
-		cursoMapper.insertConTemario(curso8);
+		cursoMapper.insert(curso1);
+		cursoMapper.insert(curso2);
+		cursoMapper.insert(curso3);
+		cursoMapper.insert(curso4);
+		cursoMapper.insert(curso5);
+		cursoMapper.insert(curso6);
+		cursoMapper.insert(curso7);
+		cursoMapper.insert(curso8);
 
 		log.info("Insertando Curso 1 -> {}", curso1.toString());
 		log.info("Insertando Curso 2 -> {}", curso2.toString());

@@ -50,14 +50,4 @@ public class CursoController {
         return new ResponseEntity<>(curso, HttpStatus.OK);
     }
 
-    /**
-     * Añadir un curso con temario
-     * @return Respuesta http con el nuevo curso
-     */
-    @PostMapping("/addCursoConTemario")
-    public ResponseEntity<?> addCursoConTemario(@RequestBody Curso curso) {
-        log.info("Añadiendo curso con temario...");
-        cursoMapper.insertConTemario(curso);
-        return new ResponseEntity<>(curso, HttpStatus.OK);
-    }
 }
