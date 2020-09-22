@@ -1,12 +1,12 @@
-package com.autentia.catalogocursos.springbootmybatis.services;
+package com.autentia.catalogocursos.springbootmybatis.repository;
 
-import com.autentia.catalogocursos.springbootmybatis.dto.CursoDTO;
 import com.autentia.catalogocursos.springbootmybatis.models.Curso;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-public interface CursoService {
-
+@Repository
+public interface CursoRepository {
     List<Curso> getAll();
 
     List<Curso> getAllCursosActivos();

@@ -1,6 +1,5 @@
 package com.autentia.catalogocursos.springbootmybatis.controllers;
 
-import com.autentia.catalogocursos.springbootmybatis.dto.CursoDTO;
 import com.autentia.catalogocursos.springbootmybatis.models.Curso;
 import com.autentia.catalogocursos.springbootmybatis.services.CursoService;
 import lombok.extern.slf4j.Slf4j;
@@ -8,8 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @Slf4j
@@ -26,9 +23,8 @@ public class CursoController {
      */
     @GetMapping("/allCursos")
     public ResponseEntity<?> getAll(){
-        log.info("Obteniendo cursos ...");
-        List<CursoDTO> listaCursos = cursoService.getAll();
-        return new ResponseEntity<>(listaCursos, HttpStatus.OK);
+        log.info("Obteniendo cursos ...");;
+        return new ResponseEntity<>(cursoService.getAll(), HttpStatus.OK);
     }
 
     /**
