@@ -8,5 +8,9 @@ cache:
 before_cache:
 - rm -rf $HOME/.m2/repository/com/autentia/traviscodacy
 
+before_install:
+  - chmod +x mvnw
+
 jdk:
   - oraclejdk11
+
