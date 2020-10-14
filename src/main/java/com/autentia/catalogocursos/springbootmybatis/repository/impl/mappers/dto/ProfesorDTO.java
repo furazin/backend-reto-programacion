@@ -1,4 +1,4 @@
-package com.autentia.catalogocursos.springbootmybatis.dto;
+package com.autentia.catalogocursos.springbootmybatis.repository.impl.mappers.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

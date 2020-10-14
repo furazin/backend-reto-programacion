@@ -1,8 +1,9 @@
 package com.autentia.catalogocursos.springbootmybatis.controllers;
 
-import com.autentia.catalogocursos.springbootmybatis.dto.CursoDTO;
-import com.autentia.catalogocursos.springbootmybatis.mappers.CursoMapper;
-import com.autentia.catalogocursos.springbootmybatis.models.Curso;
+import com.autentia.catalogocursos.springbootmybatis.domain.Curso;
+import com.autentia.catalogocursos.springbootmybatis.domain.Profesor;
+import com.autentia.catalogocursos.springbootmybatis.repository.impl.mappers.CursoMapper;
+import com.autentia.catalogocursos.springbootmybatis.repository.impl.mappers.dto.CursoDTO;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -31,16 +32,16 @@ public class CursoControllerTest {
     @Test
     public void getAll() {
         List<CursoDTO> cursos = new ArrayList<>();
-        CursoDTO curso = new CursoDTO(new Long(1),"Introduccion a JSF2","Intermedio","25",true,"Roberto", "Canales",temarioModelo);
+        CursoDTO curso = new CursoDTO(new Long(1),"Introduccion a JSF2","Intermedio","25",true, new Long(1),"Roberto", "Canales",temarioModelo);
         cursos.add(curso);
         Mockito.when(cursoMapper.findAll()).thenReturn(cursos);
-        Assert.assertEquals(cursoController.getAll().getStatusCode(),HttpStatus.OK);
+        Assert.assertEquals(cursoController.getAll().getStatusCode(), HttpStatus.OK);
     }
 
     @Test
     public void getAllActivos() {
         List<CursoDTO> cursos = new ArrayList<>();
-        CursoDTO curso = new CursoDTO(new Long(1),"Introduccion a JSF2","Intermedio","25",true,"Roberto", "Canales",temarioModelo);
+        CursoDTO curso = new CursoDTO(new Long(1),"Introduccion a JSF2","Intermedio","25",true, new Long(1), "Roberto", "Canales",temarioModelo);
         cursos.add(curso);
         Mockito.when(cursoMapper.findAllCursosActivos()).thenReturn(cursos);
         Assert.assertEquals(cursoController.getAllActivos().getStatusCode(),HttpStatus.OK);
@@ -48,7 +49,7 @@ public class CursoControllerTest {
 
     @Test
     public void addCurso() {
-        Curso curso = new Curso("Introduccion a JSF2","Intermedio","25",true,new Long(1),temarioModelo);
+        Curso curso = new Curso(new Long(1),"Introduccion a JSF2","Intermedio","25",true, new Profesor(new Long(1), "Roberto", "a"),temarioModelo);
         Mockito.doNothing().when(cursoMapper).insert(curso);
         Assert.assertEquals(cursoController.addCurso(curso).getStatusCode(),HttpStatus.OK);
     }

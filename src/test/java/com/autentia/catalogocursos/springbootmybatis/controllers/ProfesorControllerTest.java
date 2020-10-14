@@ -1,7 +1,7 @@
 package com.autentia.catalogocursos.springbootmybatis.controllers;
 
-import com.autentia.catalogocursos.springbootmybatis.dto.ProfesorDTO;
-import com.autentia.catalogocursos.springbootmybatis.mappers.ProfesorMapper;
+import com.autentia.catalogocursos.springbootmybatis.repository.impl.mappers.dto.ProfesorDTO;
+import com.autentia.catalogocursos.springbootmybatis.repository.impl.mappers.ProfesorMapper;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;

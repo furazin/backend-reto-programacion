@@ -1,4 +1,4 @@
-package com.autentia.catalogocursos.springbootmybatis.models;
+package com.autentia.catalogocursos.springbootmybatis.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,6 +9,8 @@ import lombok.Setter;
 @Setter
 public class Profesor {
 
+    Long id;
+
     String nombre;
 
     String apellidos;
@@ -16,6 +18,7 @@ public class Profesor {
     @Override
     public String toString() {
         return "Profesor{" +
+                "id=" + id +
                 ", nombre='" + nombre + '\'' +
                 ", apellidos='" + apellidos + '\'' +
                 '}';
