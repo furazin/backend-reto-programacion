@@ -15,7 +15,7 @@ public class CursoServiceTest {
     @Test
     public void getAllCursos() {
         CursoService cursoService = new CursoServiceImpl(new CursoRepositoryMock());
-        //Assert.assertNotNull(new CursoRepositoryMock().getAll());
+        Assert.assertNotNull(new CursoRepositoryMock().getAll());
     }
 
     public static class CursoRepositoryMock implements CursoRepository {
