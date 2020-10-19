@@ -30,11 +30,10 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
-          server-id: bintray
-          server-username: MAVEN_USERNAME
-          server-password: MAVEN_PASSWORD
+      - name: Grant Permission to Execute
+        run: chmod +x gradlew
       - name: Publish package
         run: mvn -B deploy
         env:
-          MAVEN_USERNAME: ${{ secrets.NEXUS_REPO_USER }}
-          MAVEN_PASSWORD: ${{ secrets.NEXUS_REPO_PASS }}
+          bintrayUser: ${{ secrets.BINTRAY_USER }}
+          bintrayApiKey: ${{ secrets.BINTRAY_API_KEY }}
