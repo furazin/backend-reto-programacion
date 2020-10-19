@@ -77,8 +77,8 @@
 	<distributionManagement>
 		<repository>
 			<id>bintray-furazin-test</id>
-			<name>bintray repository</name>
-			<url>http://dl.bintray.com/furazin/test/</url>
+			<name>furazin-test</name>
+			<url>https://api.bintray.com/maven/furazin/test/maven-releases/;publish=1</url>
 		</repository>
 	</distributionManagement>
 
