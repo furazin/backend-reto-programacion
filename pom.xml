@@ -74,6 +74,15 @@
 		</dependency>
 	</dependencies>
 
+	<distributionManagement>
+		<repository>
+			<id>bintray-furazin-test</id>
+			<name>bintray repository</name>
+			<url>http://dl.bintray.com/furazin/test/</url>
+		</repository>
+	</distributionManagement>
+
+
 	<build>
 		<plugins>
 			<plugin>
