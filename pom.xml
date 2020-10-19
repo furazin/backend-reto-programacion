@@ -76,9 +76,9 @@
 
 	<distributionManagement>
 		<repository>
-			<id>bintray-furazin-test</id>
-			<name>furazin-test</name>
-			<url>https://api.bintray.com/maven/furazin/test/maven-releases/;publish=1</url>
+			<id>github</id>
+			<name>GitHub Packages</name>
+			<url>https://maven.pkg.github.com/furazin/backend-reto-programacion</url>
 		</repository>
 	</distributionManagement>
 
