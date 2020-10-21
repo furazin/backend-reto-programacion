@@ -23,6 +23,6 @@ jobs:
       with:
         java-version: 1.8
     - name: Build and Publish package
-      run: mvn -B clean deploy docker:build
+      run: mvn -B clean deploy
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
