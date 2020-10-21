@@ -18,6 +18,15 @@
 		<java.version>1.11</java.version>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
+		<postgresql.version>42.2.5</postgresql.version>
+
+		<docker-maven-plugin.version>0.34.1</docker-maven-plugin.version>
+		<it.postgresql.image>postgres:10-alpine</it.postgresql.image>
+		<it.postgresql.host>localhost</it.postgresql.host>
+		<it.postgresql.port>5432</it.postgresql.port>
+		<it.postgresql.db>archimedes</it.postgresql.db>
+		<it.postgresql.password>verysecret</it.postgresql.password>
+
 	</properties>
 
 	<dependencies>
@@ -84,6 +93,52 @@
 
 
 	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>io.fabric8</groupId>
+					<artifactId>docker-maven-plugin</artifactId>
+					<version>${docker-maven-plugin.version}</version>
+					<configuration>
+						<images>
+							<image>
+								<name>${it.postgresql.image}</name>
+								<run>
+									<ports>
+										<port>${it.postgresql.port}:5432</port>
+									</ports>
+									<env>
+										<POSTGRES_PASSWORD>${it.postgresql.password}</POSTGRES_PASSWORD>
+										<POSTGRES_DB>${it.postgresql.db}</POSTGRES_DB>
+									</env>
+									<wait>
+										<log>database system is ready to accept connections</log>
+									</wait>
+								</run>
+							</image>
+						</images>
+					</configuration>
+					<executions>
+						<execution>
+							<id>start</id>
+							<phase>pre-integration-test</phase>
+							<goals>
+								<goal>start</goal>
+							</goals>
+						</execution>
+						<execution>
+							<id>stop</id>
+							<phase>post-integration-test</phase>
+							<goals>
+								<goal>stop</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+
+
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
@@ -91,5 +146,17 @@
 			</plugin>
 		</plugins>
 	</build>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.postgresql</groupId>
+				<artifactId>postgresql</artifactId>
+				<version>${postgresql.version}</version>
+				<scope>test</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
 
 </project>
