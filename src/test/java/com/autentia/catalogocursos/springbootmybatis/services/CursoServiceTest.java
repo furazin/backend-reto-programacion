@@ -7,22 +7,15 @@ import com.autentia.catalogocursos.springbootmybatis.services.impl.CursoServiceI
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.Arrays;
 import java.util.List;
 
 public class CursoServiceTest {
 
     @Test
-    public void getAllCursos() throws SQLException {
-        //CursoService cursoService = new CursoServiceImpl(new CursoRepositoryMock());
-        //Assert.assertNotNull(new CursoRepositoryMock().getAll());
-        Connection c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/", "postgres", "postgres");
-        Statement statement = c.createStatement();
-        statement.executeUpdate("CREATE DATABASE mydb");
+    public void getAllCursos() {
+        CursoService cursoService = new CursoServiceImpl(new CursoRepositoryMock());
+        Assert.assertNotNull(new CursoRepositoryMock().getAll());
     }
 
     public static class CursoRepositoryMock implements CursoRepository {
