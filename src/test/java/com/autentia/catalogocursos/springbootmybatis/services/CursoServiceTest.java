@@ -17,9 +17,12 @@ import java.util.List;
 public class CursoServiceTest {
 
     @Test
-    public void getAllCursos() {
-        CursoService cursoService = new CursoServiceImpl(new CursoRepositoryMock());
-        Assert.assertNotNull(new CursoRepositoryMock().getAll());
+    public void getAllCursos() throws SQLException {
+        //CursoService cursoService = new CursoServiceImpl(new CursoRepositoryMock());
+        //Assert.assertNotNull(new CursoRepositoryMock().getAll());
+        Connection c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/", "postgres", "postgres");
+        Statement statement = c.createStatement();
+        statement.executeUpdate("CREATE DATABASE mydb");
     }
 
     public static class CursoRepositoryMock implements CursoRepository {
@@ -38,10 +41,8 @@ public class CursoServiceTest {
         }
 
         @Override
-        public void insert(Curso curso) throws SQLException {
-            Connection c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/", "postgres", "postgres");
-            Statement statement = c.createStatement();
-            statement.executeUpdate("CREATE DATABASE mydb");
+        public void insert(Curso curso) {
+
         }
     }
 
