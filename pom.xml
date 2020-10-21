@@ -118,6 +118,7 @@
 							</image>
 						</images>
 					</configuration>
+
 					<executions>
 						<execution>
 							<id>start</id>
