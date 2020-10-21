@@ -14,9 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     services:
       postgres:
-        image: postgres:10-alpineadasdsadsadsa
-        ports:
-          - 5432:5432
+        image: postgres:10-alpine
 
     steps:
     - uses: actions/checkout@v2
