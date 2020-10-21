@@ -35,7 +35,6 @@ public class CursoServiceTest {
 
         @Override
         public void insert(Curso curso) {
-
         }
     }
 
