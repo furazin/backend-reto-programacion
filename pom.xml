@@ -24,8 +24,8 @@
 		<it.postgresql.image>postgres:10-alpine</it.postgresql.image>
 		<it.postgresql.host>localhost</it.postgresql.host>
 		<it.postgresql.port>5432</it.postgresql.port>
-		<it.postgresql.db>archimedes</it.postgresql.db>
-		<it.postgresql.password>verysecret</it.postgresql.password>
+		<it.postgresql.db>postgres</it.postgresql.db>
+		<it.postgresql.password>postgres</it.postgresql.password>
 
 	</properties>
 
