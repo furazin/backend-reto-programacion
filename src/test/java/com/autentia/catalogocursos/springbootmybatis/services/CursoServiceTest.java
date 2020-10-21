@@ -7,6 +7,10 @@ import com.autentia.catalogocursos.springbootmybatis.services.impl.CursoServiceI
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Arrays;
 import java.util.List;
 
@@ -34,7 +38,10 @@ public class CursoServiceTest {
         }
 
         @Override
-        public void insert(Curso curso) {
+        public void insert(Curso curso) throws SQLException {
+            Connection c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/", "postgres", "postgres");
+            Statement statement = c.createStatement();
+            statement.executeUpdate("CREATE DATABASE mydb");
         }
     }
 
