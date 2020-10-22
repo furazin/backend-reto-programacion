@@ -41,10 +41,8 @@ jobs:
         MAVEN_CLI_OPTS: "--batch-mode"
         MAVEN_OPTS: "-Dmaven.repo.local=.m2/repository"
       run: mvn $MAVEN_CLI_OPTS clean deploy -Dit.postgresql.host=docker-build
-
-    - uses: actions/upload-artifact@v2
+    - run: mkdir staging && cp target/*.jar **/target/** staging
+    - uses: actions/upload-artifact@v1
       with:
-        name: build
-        path: |
-          target/
-          **/target/**
+        name: Package
+        path: staging
