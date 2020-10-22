@@ -91,7 +91,6 @@
 		</repository>
 	</distributionManagement>
 
-
 	<build>
 		<pluginManagement>
 			<plugins>
@@ -147,17 +146,6 @@
 			</plugin>
 		</plugins>
 	</build>
-
-	<dependencyManagement>
-		<dependencies>
-			<dependency>
-				<groupId>org.postgresql</groupId>
-				<artifactId>postgresql</artifactId>
-				<version>${postgresql.version}</version>
-				<scope>test</scope>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
 
 
 </project>
