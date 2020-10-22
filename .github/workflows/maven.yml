@@ -13,8 +13,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     services:
-      postgres:
-        image: postgres:10-alpine
+      docker-build:
+        image: docker-dind
 
     steps:
     - uses: actions/checkout@v2
@@ -22,7 +22,14 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 1.8
-    - name: Build and Publish package
-      run: mvn -B clean deploy
+        server-id: github
+
+    - name: Build with maven
+      run: mvn -B package --file pom.xml
+
+    - name: Publish package to github
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        MAVEN_CLI_OPTS: "--batch-mode"
+        MAVEN_OPTS: "-Dmaven.repo.local=.m2/repository"
+      run: mvn $MAVEN_CLI_OPTS clean deploy -Dit.postgresql.host=docker-build
