@@ -15,12 +15,6 @@ jobs:
     services:
       docker-build:
         image: docker:dind
-        env:
-          DOCKER_HOST: tcp://docker:2376
-          DOCKER_TLS_CERTDIR: /certs
-          DOCKER_CERT_PATH: /certs/client
-          DOCKER_TLS_VERIFY: 1
-          DOCKER_DRIVER: overlay2
 
     steps:
     - uses: actions/checkout@v2
@@ -46,6 +40,11 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         MAVEN_CLI_OPTS: "--batch-mode"
         MAVEN_OPTS: "-Dmaven.repo.local=.m2/repository"
+        DOCKER_HOST: tcp://docker:2376
+        DOCKER_TLS_CERTDIR: /certs
+        DOCKER_CERT_PATH: /certs/client
+        DOCKER_TLS_VERIFY: 1
+        DOCKER_DRIVER: overlay2
       run: mvn $MAVEN_CLI_OPTS clean deploy -Dit.postgresql.host=docker-build
 
     - uses: actions/upload-artifact@v2
