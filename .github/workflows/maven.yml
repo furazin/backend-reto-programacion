@@ -15,6 +15,12 @@ jobs:
     services:
       docker-build:
         image: docker:dind
+        env:
+          DOCKER_HOST: tcp://docker:2376
+          DOCKER_TLS_CERTDIR: /certs
+          DOCKER_CERT_PATH: /certs/client
+          DOCKER_TLS_VERIFY: 1
+          DOCKER_DRIVER: overlay2
 
     steps:
     - uses: actions/checkout@v2
