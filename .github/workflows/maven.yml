@@ -33,8 +33,8 @@ jobs:
         MAVEN_OPTS: "-Dmaven.repo.local=.m2/repository"
       run: mvn $MAVEN_CLI_OPTS clean deploy -Dit.postgresql.host=docker-build
     - uses: actions/upload-artifact@v2
-        with:
-          name: build
-          path: |
-            target/
-            **/target/**
+      with:
+        name: build
+        path: |
+          target/
+          **/target/**
